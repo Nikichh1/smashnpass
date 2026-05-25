@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Oswald", Impact, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0E0D0B;
+  position: relative;
+}
+
+body {
+  background-color: #0E0D0B;
+  color: #FBF6E8;
+  font-family: var(--font-body);
+  overflow-x: clip;
+  position: relative;
+}
+
+::selection {
+  background: #F5B82E;
+  color: #0E0D0B;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-stroke-cream {
+    -webkit-text-stroke: 1.5px #F5EFE3;
+    color: transparent;
+  }
+
+  .text-stroke-char {
+    -webkit-text-stroke: 1.5px #0E0D0B;
+    color: transparent;
+  }
+
+  .bg-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0 0.88 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px;
+  }
+
+  .grid-paper {
+    background-image:
+      linear-gradient(rgba(245, 239, 227, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 239, 227, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .perspective-1000 {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .shadow-text-fire {
+    text-shadow: 0 0 60px rgba(230, 57, 70, 0.45);
+  }
+}
+
+/* Smooth scrolling reduced motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0E0D0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #2B2723;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5B82E;
+}

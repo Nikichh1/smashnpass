@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smash N' Pass — Български Smash Burger | Belgian Fries</title>
+  <meta name="description" content="Истинският smash burger в България. Прясно телешко, белгийски картофки, ръчно правени сосове. София, Пловдив, Созопол." />
+  <meta name="keywords" content="smash burger, бургер софия, smash n pass, пловдив бургер, созопол бургер, belgian fries, белгийски картофки" />
+  <meta property="og:title" content="Smash N' Pass" />
+  <meta property="og:description" content="Smash. Pass. Repeat. Истински smash burger в 3 града." />
+  <meta property="og:locale" content="bg_BG" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            char: { DEFAULT: '#0E0D0B', 900: '#0E0D0B', 800: '#171513', 700: '#211E1A', 600: '#2B2723' },
+            cream: { DEFAULT: '#F5EFE3', 50: '#FBF6E8', 100: '#F5EFE3', 200: '#E8E0CE', 300: '#C9BEA6', 400: '#8C8478' },
+            mustard: { DEFAULT: '#F5B82E', 400: '#FFC94D', 500: '#F5B82E', 600: '#D99B19', 700: '#A8740D' },
+            fire: { DEFAULT: '#E63946', 400: '#F25F6A', 500: '#E63946', 600: '#C12530' },
+            pickle: '#7CA040',
+            onion: '#F3E9D8'
+          },
+          fontFamily: {
+            display: ['Oswald', 'Impact', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          },
+          boxShadow: {
+            'smash': '0 30px 60px -20px rgba(245, 184, 46, 0.35), 0 18px 36px -18px rgba(0,0,0,0.6)',
+            'char': '0 24px 60px -24px rgba(0,0,0,0.8)'
+          },
+          letterSpacing: {
+            'tight2': '-0.02em',
+            'tightest': '-0.04em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-char-900 text-cream-50 font-body antialiased">
+
+  <!-- ============== NAVBAR ============== -->
+  <header id="navbar" class="fixed top-4 left-4 right-4 z-50 mx-auto max-w-7xl opacity-0 -translate-y-20" data-anim="navbar">
+    <div id="navbar-inner" class="flex items-center justify-between rounded-2xl border border-cream-50/5 bg-char-900/40 backdrop-blur-md px-4 py-3 sm:px-5 transition-all duration-300">
+      <a href="#top" class="flex items-center gap-2 cursor-pointer">
+        <!-- Logo SVG -->
+        <svg viewBox="0 0 220 60" class="h-9 w-auto" fill="none" aria-label="Smash N' Pass">
+          <g transform="translate(2, 8)">
+            <path d="M4 18 Q4 4 22 4 Q40 4 40 18 Z" fill="#D99B19" />
+            <ellipse cx="14" cy="10" rx="1.4" ry="1" fill="#FBF6E8" />
+            <ellipse cx="22" cy="8" rx="1.4" ry="1" fill="#FBF6E8" />
+            <ellipse cx="30" cy="10" rx="1.4" ry="1" fill="#FBF6E8" />
+            <path d="M3 19 Q8 16 13 19 Q18 16 23 19 Q28 16 33 19 Q38 16 41 19 L41 22 L3 22 Z" fill="#7CA040" />
+            <path d="M2 22 L42 22 L40 26 L4 26 Z" fill="#F5B82E" />
+            <rect x="3" y="26" width="38" height="6" rx="2" fill="#3A1F12" />
+            <path d="M4 32 L40 32 Q40 44 22 44 Q4 44 4 32 Z" fill="#A8740D" />
+          </g>
+          <text x="52" y="32" font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="26" fill="#FBF6E8" letter-spacing="-0.5">SMASH</text>
+          <text x="142" y="32" font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="26" fill="#F5B82E" letter-spacing="-0.5">N'</text>
+          <text x="170" y="32" font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="26" fill="#FBF6E8" letter-spacing="-0.5">PASS</text>
+          <rect x="52" y="42" width="158" height="2.5" fill="#E63946" />
+          <text x="52" y="56" font-family="JetBrains Mono, monospace" font-size="7" fill="#8C8478" letter-spacing="2">BG · SMASH BURGER · SINCE 2023</text>
+        </svg>
+      </a>
+
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="#menu" class="cursor-pointer rounded-full px-4 py-2 text-sm font-medium text-cream-100 transition-colors hover:text-mustard-400">Меню</a>
+        <a href="#anatomy" class="cursor-pointer rounded-full px-4 py-2 text-sm font-medium text-cream-100 transition-colors hover:text-mustard-400">Анатомия</a>
+        <a href="#story" class="cursor-pointer rounded-full px-4 py-2 text-sm font-medium text-cream-100 transition-colors hover:text-mustard-400">За нас</a>
+        <a href="#locations" class="cursor-pointer rounded-full px-4 py-2 text-sm font-medium text-cream-100 transition-colors hover:text-mustard-400">Локации</a>
+      </nav>
+
+      <div class="hidden items-center gap-2 md:flex">
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" aria-label="Instagram"
+          class="grid h-10 w-10 cursor-pointer place-items-center rounded-full border border-cream-50/10 text-cream-100 transition-colors hover:border-mustard-500 hover:text-mustard-400">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#order" class="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-mustard-500 px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-char-900 shadow-smash transition-all hover:bg-mustard-400">
+          Поръчай
+          <span class="grid h-5 w-5 place-items-center rounded-full bg-char-900 text-mustard-400 transition-transform group-hover:rotate-45">
+            <svg viewBox="0 0 12 12" class="h-2.5 w-2.5" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+          </span>
+        </a>
+      </div>
+
+      <button id="mobileMenuBtn" aria-label="Toggle menu"
+        class="grid h-10 w-10 cursor-pointer place-items-center rounded-full border border-cream-50/10 text-cream-100 md:hidden">
+        <i data-lucide="menu" class="w-4 h-4" id="mobileMenuIcon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="fixed inset-x-4 top-24 z-40 rounded-2xl border border-cream-50/10 bg-char-800/95 p-6 backdrop-blur-xl md:hidden opacity-0 pointer-events-none -translate-y-5 transition-all duration-300">
+    <div class="flex flex-col gap-2">
+      <a href="#menu" class="mob-link rounded-xl px-4 py-3 text-lg font-bold uppercase tracking-wide text-cream-100 transition-colors hover:bg-char-700 hover:text-mustard-400">Меню</a>
+      <a href="#anatomy" class="mob-link rounded-xl px-4 py-3 text-lg font-bold uppercase tracking-wide text-cream-100 transition-colors hover:bg-char-700 hover:text-mustard-400">Анатомия</a>
+      <a href="#story" class="mob-link rounded-xl px-4 py-3 text-lg font-bold uppercase tracking-wide text-cream-100 transition-colors hover:bg-char-700 hover:text-mustard-400">За нас</a>
+      <a href="#locations" class="mob-link rounded-xl px-4 py-3 text-lg font-bold uppercase tracking-wide text-cream-100 transition-colors hover:bg-char-700 hover:text-mustard-400">Локации</a>
+      <a href="#order" class="mob-link mt-3 inline-flex items-center justify-center gap-2 rounded-xl bg-mustard-500 px-4 py-3 text-base font-bold uppercase tracking-wider text-char-900">Поръчай сега</a>
+      <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-50/10 px-4 py-3 text-sm font-semibold text-cream-100">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @smash.n.pass
+      </a>
+    </div>
+  </div>
+
+  <!-- ============== HERO ============== -->
+  <section id="top" class="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-char-900 pt-28 sm:items-center">
+    <div class="absolute inset-0 grid-paper opacity-50" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-grain opacity-30 mix-blend-overlay" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -top-32 left-1/2 h-[600px] w-[1100px] -translate-x-1/2 rounded-full opacity-60" style="background: radial-gradient(closest-side, rgba(245,184,46,0.25), transparent 80%)" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute bottom-0 right-0 h-[450px] w-[700px] rounded-full opacity-50" style="background: radial-gradient(closest-side, rgba(230,57,70,0.20), transparent 80%)" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 sm:pb-0 sm:px-8">
+      <div class="grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
+        <!-- LEFT -->
+        <div class="lg:col-span-7">
+          <div data-anim="hero-1" class="opacity-0 translate-y-5 mb-5 inline-flex items-center gap-2 rounded-full border border-cream-50/15 bg-char-800/60 px-3 py-1.5 backdrop-blur-md">
+            <span class="grid h-5 w-5 place-items-center rounded-full bg-mustard-500">
+              <i data-lucide="flame" class="w-3 h-3 text-char-900"></i>
+            </span>
+            <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-200">Wolt rating · 8.8 / 10</span>
+            <span class="h-1 w-1 rounded-full bg-cream-400"></span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-cream-400">Sofia · Plovdiv · Sozopol</span>
+          </div>
+
+          <h1 data-anim="hero-2" class="opacity-0 translate-y-8 font-display font-bold text-[clamp(3.4rem,11vw,8.5rem)] leading-[0.86] tracking-tight2 text-cream-50">
+            СМАЧКАЙ.<br/>
+            <span class="text-mustard-500 shadow-text-fire">ИЗПАСИРАЙ.</span><br/>
+            <span class="text-stroke-cream">ПОВТОРИ.</span>
+          </h1>
+
+          <p data-anim="hero-3" class="opacity-0 translate-y-5 mt-6 max-w-xl text-base leading-relaxed text-cream-200 sm:text-lg" style="text-wrap: balance;">
+            Истинският <span class="text-mustard-400 font-semibold">smash burger</span> в България. Прясно телешко, разтопен чедър, белгийски картофки и ръчно правени сосове. Без преструвки. Само вкус.
+          </p>
+
+          <div data-anim="hero-4" class="opacity-0 translate-y-5 mt-8 flex flex-wrap items-center gap-3">
+            <a href="#menu" class="group inline-flex cursor-pointer items-center gap-3 rounded-full bg-mustard-500 px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] text-char-900 shadow-smash transition-all hover:bg-mustard-400">
+              Виж менюто
+              <span class="grid h-7 w-7 place-items-center rounded-full bg-char-900 text-mustard-400 transition-transform duration-300 group-hover:rotate-45">
+                <svg viewBox="0 0 16 16" class="h-3 w-3" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+              </span>
+            </a>
+            <a href="#order" class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-cream-50/20 bg-char-800/40 px-6 py-4 text-sm font-bold uppercase tracking-[0.15em] text-cream-100 backdrop-blur-md transition-all hover:border-mustard-500 hover:text-mustard-400">
+              Поръчай онлайн
+            </a>
+          </div>
+
+          <div data-anim="hero-5" class="opacity-0 mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-cream-400">
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-mustard-500 text-mustard-500"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-mustard-500 text-mustard-500"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-mustard-500 text-mustard-500"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-mustard-500 text-mustard-500"></i>
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-mustard-500 text-mustard-500"></i>
+              <span class="ml-1 font-mono uppercase tracking-wider">Tripadvisor</span>
+            </div>
+            <span class="h-3 w-px bg-cream-50/15"></span>
+            <span class="font-mono uppercase tracking-wider"><span class="text-cream-100">3</span> локации</span>
+            <span class="h-3 w-px bg-cream-50/15"></span>
+            <span class="font-mono uppercase tracking-wider"><span class="text-cream-100">Wolt</span> · <span class="text-cream-100">Glovo</span> доставка</span>
+          </div>
+        </div>
+
+        <!-- RIGHT — burger -->
+        <div class="relative lg:col-span-5">
+          <div class="relative w-full max-w-[520px] mx-auto" style="perspective: 1400px;">
+            <div id="heroBurger" class="relative mx-auto w-full hero-float" style="transform-style: preserve-3d;">
+
+              <!-- TOP BUN -->
+              <div data-burger-layer="0" class="opacity-0 -translate-y-16 relative mx-auto w-[88%]" style="transform-style: preserve-3d;">
+                <svg viewBox="0 0 400 160" class="w-full drop-shadow-2xl">
+                  <defs>
+                    <radialGradient id="bunTop" cx="50%" cy="40%" r="60%">
+                      <stop offset="0%" stop-color="#E8A623" />
+                      <stop offset="60%" stop-color="#D99B19" />
+                      <stop offset="100%" stop-color="#A8740D" />
+                    </radialGradient>
+                  </defs>
+                  <path d="M20 150 Q20 10 200 10 Q380 10 380 150 Z" fill="url(#bunTop)" />
+                  <ellipse cx="120" cy="60" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(-7 120 60)" />
+                  <ellipse cx="170" cy="40" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(16 170 40)" />
+                  <ellipse cx="220" cy="50" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(-23 220 50)" />
+                  <ellipse cx="275" cy="45" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(20 275 45)" />
+                  <ellipse cx="150" cy="90" rx="5" ry="3.4" fill="#FBF6E8" />
+                  <ellipse cx="210" cy="85" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(8 210 85)" />
+                  <ellipse cx="265" cy="90" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(-14 265 90)" />
+                  <ellipse cx="320" cy="70" rx="5" ry="3.4" fill="#FBF6E8" transform="rotate(11 320 70)" />
+                  <ellipse cx="95" cy="100" rx="5" ry="3.4" fill="#FBF6E8" />
+                  <ellipse cx="330" cy="110" rx="5" ry="3.4" fill="#FBF6E8" />
+                  <ellipse cx="195" cy="120" rx="5" ry="3.4" fill="#FBF6E8" />
+                  <path d="M60 60 Q140 25 220 30" stroke="rgba(255,255,255,0.35)" stroke-width="6" fill="none" stroke-linecap="round" />
+                </svg>
+              </div>
+
+              <!-- SAUCE -->
+              <div data-burger-layer="1" class="opacity-0 -translate-y-16 -mt-3 mx-auto w-[92%] relative">
+                <svg viewBox="0 0 400 40" class="w-full">
+                  <path d="M10 5 Q40 25 80 8 Q120 28 160 6 Q200 26 240 8 Q280 26 320 6 Q360 24 390 8 L390 30 Q360 38 320 32 Q280 38 240 30 L240 38 L220 26 L200 36 L180 26 L160 38 L160 30 Q120 38 80 30 Q40 38 10 30 Z" fill="#E63946" />
+                </svg>
+              </div>
+
+              <!-- LETTUCE -->
+              <div data-burger-layer="2" class="opacity-0 -translate-y-16 -mt-6 mx-auto w-[96%] relative">
+                <svg viewBox="0 0 400 60" class="w-full">
+                  <path d="M5 30 Q25 8 50 25 Q75 5 100 22 Q125 4 150 24 Q175 6 200 20 Q225 4 250 23 Q275 7 300 25 Q325 6 350 24 Q375 8 395 28 L395 55 L5 55 Z" fill="#8AB14A" />
+                  <path d="M5 30 Q25 8 50 25 Q75 5 100 22 Q125 4 150 24 Q175 6 200 20 Q225 4 250 23 Q275 7 300 25 Q325 6 350 24 Q375 8 395 28" stroke="#557A22" stroke-width="1.2" fill="none" />
+                </svg>
+              </div>
+
+              <!-- CHEESE -->
+              <div data-burger-layer="3" class="opacity-0 -translate-y-16 -mt-2 mx-auto w-[98%] relative">
+                <svg viewBox="0 0 400 70" class="w-full drop-shadow-lg">
+                  <path d="M0 5 L400 5 L390 50 Q300 65 200 60 Q100 65 10 50 Z" fill="#F5B82E" />
+                  <path d="M40 50 Q44 60 42 68" stroke="#F5B82E" stroke-width="10" fill="none" stroke-linecap="round" />
+                  <path d="M180 58 Q186 70 184 80" stroke="#F5B82E" stroke-width="14" fill="none" stroke-linecap="round" />
+                  <path d="M330 56 Q335 68 332 76" stroke="#F5B82E" stroke-width="11" fill="none" stroke-linecap="round" />
+                </svg>
+              </div>
+
+              <!-- PATTY -->
+              <div data-burger-layer="4" class="opacity-0 -translate-y-16 -mt-4 mx-auto w-[94%] relative">
+                <svg viewBox="0 0 400 60" class="w-full drop-shadow-xl">
+                  <defs>
+                    <linearGradient id="patty1" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#4A2614" />
+                      <stop offset="60%" stop-color="#3A1F12" />
+                      <stop offset="100%" stop-color="#2A1409" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M10 10 Q200 -8 390 10 Q400 35 380 50 Q200 60 20 50 Q0 35 10 10 Z" fill="url(#patty1)" />
+                  <path d="M30 14 Q200 0 370 14" stroke="#5E2F18" stroke-width="2" fill="none" opacity="0.7" />
+                </svg>
+              </div>
+
+              <!-- ONION -->
+              <div data-burger-layer="5" class="opacity-0 -translate-y-16 -mt-3 mx-auto w-[88%] relative">
+                <svg viewBox="0 0 400 18" class="w-full">
+                  <ellipse cx="200" cy="9" rx="180" ry="6" fill="#F3E9D8" />
+                  <ellipse cx="200" cy="9" rx="180" ry="6" fill="none" stroke="#D7C9AE" stroke-width="1" />
+                </svg>
+              </div>
+
+              <!-- BOTTOM BUN -->
+              <div data-burger-layer="6" class="opacity-0 -translate-y-16 -mt-2 mx-auto w-[90%] relative">
+                <svg viewBox="0 0 400 110" class="w-full drop-shadow-2xl">
+                  <defs>
+                    <linearGradient id="bunBot" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#C68A14" />
+                      <stop offset="100%" stop-color="#7A540A" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M10 5 L390 5 Q400 75 200 100 Q0 75 10 5 Z" fill="url(#bunBot)" />
+                </svg>
+              </div>
+
+              <div class="mx-auto mt-2 h-6 w-[60%] rounded-[50%] bg-mustard-500/30 blur-2xl"></div>
+            </div>
+
+            <!-- floating callouts -->
+            <div data-anim="callout-1" class="opacity-0 -translate-x-8 absolute -left-2 top-12 hidden rotate-[-6deg] rounded-full border border-mustard-500/40 bg-char-800/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-mustard-400 backdrop-blur-md sm:block">⌁ 100% Прясно</div>
+            <div data-anim="callout-2" class="opacity-0 translate-x-8 absolute -right-4 top-1/3 hidden rotate-[6deg] rounded-full border border-fire-500/50 bg-char-800/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-fire-400 backdrop-blur-md sm:block">✶ Двоен Чедър</div>
+            <div data-anim="callout-3" class="opacity-0 translate-y-8 absolute bottom-12 left-4 hidden rotate-[-3deg] rounded-full border border-cream-50/20 bg-char-800/80 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-cream-100 backdrop-blur-md sm:block">✱ Smash Sauce</div>
+          </div>
+          <div aria-hidden="true" class="pointer-events-none absolute -bottom-8 left-1/2 -z-10 -translate-x-1/2 select-none whitespace-nowrap font-display font-bold text-[18vw] leading-none text-cream-50/[0.025] sm:text-[12vw] lg:text-[10vw]">SMASH</div>
+        </div>
+      </div>
+
+      <div class="mt-12 hidden items-center justify-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-cream-400 sm:flex">
+        <span>Scroll</span>
+        <i data-lucide="chevron-down" class="w-3 h-3 animate-bounce"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== MARQUEE ============== -->
+  <section class="relative isolate overflow-hidden border-y border-cream-50/10 bg-mustard-500 py-5">
+    <div class="flex animate-marquee gap-10 whitespace-nowrap will-change-transform">
+      <!-- duplicated for seamless loop -->
+      <div class="flex shrink-0 items-center gap-10">
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">100% БЪЛГАРСКО ТЕЛЕШКО</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">БЕЛГИЙСКИ КАРТОФКИ</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">СМАЧКАН НА ПЛОЧАТА</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">ДВОЕН ЧЕДЪР</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">РЪЧНО ПРАВЕНИ СОСОВЕ</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">ПРЯСНО ВСЕКИ ДЕН</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">СОФИЯ · ПЛОВДИВ · СОЗОПОЛ</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+      </div>
+      <div class="flex shrink-0 items-center gap-10" aria-hidden="true">
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">100% БЪЛГАРСКО ТЕЛЕШКО</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">БЕЛГИЙСКИ КАРТОФКИ</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">СМАЧКАН НА ПЛОЧАТА</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">ДВОЕН ЧЕДЪР</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">РЪЧНО ПРАВЕНИ СОСОВЕ</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">ПРЯСНО ВСЕКИ ДЕН</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+        <span class="font-display font-bold text-2xl uppercase tracking-tight text-char-900 sm:text-3xl">СОФИЯ · ПЛОВДИВ · СОЗОПОЛ</span>
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-fire-500"><path d="M12 2L14.39 9.27L22 9.27L15.81 13.97L18.21 21.24L12 16.54L5.79 21.24L8.19 13.97L2 9.27L9.61 9.27L12 2Z" fill="currentColor" /></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ANATOMY (4D scroll-driven) ============== -->
+  <section id="anatomy" class="relative bg-char-900">
+    <div id="anatomyTrack" style="position: relative; height: calc(9 * 80vh + 100vh);">
+      <div class="sticky top-0 h-screen overflow-hidden">
+        <div class="absolute inset-0 grid-paper opacity-30" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute right-0 top-1/2 -z-0 h-[600px] w-[600px] -translate-y-1/2 rounded-full" style="background: radial-gradient(closest-side, rgba(245,184,46,0.10), transparent 70%)" aria-hidden="true"></div>
+
+        <div class="relative z-10 mx-auto flex h-full max-w-7xl flex-col px-5 pt-24 pb-10 sm:px-8 lg:flex-row lg:items-center lg:gap-8 lg:pb-0">
+          <!-- LEFT -->
+          <div class="lg:flex-1">
+            <div class="mb-5 max-w-lg">
+              <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-mustard-500/30 bg-mustard-500/10 px-3 py-1">
+                <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-400">Анатомия · 4D</span>
+              </div>
+              <h2 class="font-display font-bold text-[clamp(2.2rem,5vw,4.2rem)] leading-[0.9] tracking-tight2 text-cream-50">
+                Какво има <span class="text-stroke-cream">вътре</span>
+              </h2>
+              <p class="mt-3 max-w-md text-sm text-cream-200 sm:text-base">Скролни и разпиши истинския smash слой по слой.</p>
+            </div>
+
+            <ol id="anatomyChips" class="hidden grid-cols-1 gap-1.5 lg:grid">
+              <!-- chips injected by JS -->
+            </ol>
+
+            <ul id="anatomyChipsMobile" class="mt-4 flex flex-wrap gap-1.5 lg:hidden">
+              <!-- chips injected by JS -->
+            </ul>
+          </div>
+
+          <!-- RIGHT — stacked burger -->
+          <div class="relative mt-8 flex-1 lg:mt-0">
+            <div id="anatomyBurger" class="relative mx-auto flex w-full max-w-[440px] flex-col items-center justify-end gap-[2px]" style="perspective: 1500px; transform-style: preserve-3d;">
+              <!-- layers injected by JS -->
+              <div class="mx-auto mt-2 h-5 w-[55%] rounded-[50%] bg-mustard-500/20 blur-2xl"></div>
+            </div>
+
+            <div class="mt-6 hidden items-center justify-center gap-2 lg:flex">
+              <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-cream-400">Scroll</span>
+              <div class="h-px w-12 bg-cream-50/15"></div>
+              <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-mustard-400">Build the burger</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== STORY ============== -->
+  <section id="story" class="relative isolate overflow-hidden bg-cream-100 py-24 sm:py-32">
+    <div class="absolute inset-0 bg-grain opacity-40 mix-blend-multiply" aria-hidden="true"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute -bottom-8 left-1/2 -z-10 -translate-x-1/2 select-none whitespace-nowrap font-display font-bold text-[24vw] leading-none text-char-900/[0.04] sm:text-[18vw]">N' PASS</div>
+
+    <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="grid items-end gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <div data-inview class="opacity-0 translate-y-5 transition-all duration-700 mb-4 inline-flex items-center gap-2 rounded-full border border-char-900/15 bg-char-900/5 px-3 py-1.5">
+            <span class="h-1.5 w-1.5 rounded-full bg-fire-500"></span>
+            <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-char-700">Историята · Since 2023</span>
+          </div>
+          <h2 data-inview class="opacity-0 translate-y-5 transition-all duration-700 delay-100 font-display font-bold text-[clamp(2.4rem,6vw,5rem)] leading-[0.9] tracking-tight2 text-char-900">
+            Започнахме с<br/>
+            <span class="text-stroke-char">една плоча</span><br/>
+            и една идея.
+          </h2>
+        </div>
+        <div data-inview class="opacity-0 translate-y-5 transition-all duration-700 delay-200 lg:col-span-5">
+          <!-- Polaroid-style photo accent -->
+          <div class="relative mb-6 hidden lg:block">
+            <div class="relative rotate-[3deg] rounded-sm bg-cream-50 p-3 pb-12 shadow-2xl transition-transform duration-500 hover:rotate-0">
+              <img src="assets/photos/06.jpg" alt="Двоен чедър бургер от кухнята" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+              <div class="absolute inset-x-0 bottom-2 text-center font-display font-bold text-sm uppercase tracking-wider text-char-700">
+                ✱ От нашата плоча
+              </div>
+              <span class="absolute -top-3 left-1/2 h-4 w-16 -translate-x-1/2 rotate-[-2deg] rounded-sm bg-mustard-500/80 shadow-md"></span>
+            </div>
+          </div>
+
+          <p class="text-base leading-relaxed text-char-700 sm:text-lg">
+            Защото бяхме уморени от бургери, които изглеждат добре на снимка, но не оправдават хайпа. Smash N' Pass е нашият отговор — без театралности, без ненужни топинги. Прясно месо, истински чедър, белгийски картофки и сос, който помниш.
+          </p>
+          <p class="mt-4 text-base leading-relaxed text-char-700">
+            За три години отворихме <span class="font-semibold text-char-900">три локации</span> в три различни града. Защото добрият smash burger не е лукс — той е право.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div data-inview class="opacity-0 translate-y-8 transition-all duration-700 group relative cursor-default overflow-hidden rounded-2xl border border-char-900/10 bg-char-900 p-6 hover:-translate-y-1 hover:shadow-smash">
+          <div class="mb-6 grid h-12 w-12 place-items-center rounded-xl bg-mustard-500 text-char-900">
+            <i data-lucide="beef" class="w-6 h-6" stroke-width="2.5"></i>
+          </div>
+          <div class="font-display font-bold text-2xl uppercase leading-none text-cream-50">100% прясно</div>
+          <p class="mt-2 text-sm leading-relaxed text-cream-200">Никога замразено. Месото идва прясно всеки ден от проверени български доставчици.</p>
+          <div class="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-mustard-500/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"></div>
+        </div>
+
+        <div data-inview class="opacity-0 translate-y-8 transition-all duration-700 delay-75 group relative cursor-default overflow-hidden rounded-2xl border border-char-900/10 bg-char-900 p-6 hover:-translate-y-1 hover:shadow-smash">
+          <div class="mb-6 grid h-12 w-12 place-items-center rounded-xl bg-mustard-500 text-char-900">
+            <i data-lucide="flame" class="w-6 h-6" stroke-width="2.5"></i>
+          </div>
+          <div class="font-display font-bold text-2xl uppercase leading-none text-cream-50">250°C smash</div>
+          <p class="mt-2 text-sm leading-relaxed text-cream-200">Кюфтата се притискат върху нажежената плоча — само така се случва карамелизираната коричка.</p>
+          <div class="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-mustard-500/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"></div>
+        </div>
+
+        <div data-inview class="opacity-0 translate-y-8 transition-all duration-700 delay-150 group relative cursor-default overflow-hidden rounded-2xl border border-char-900/10 bg-char-900 p-6 hover:-translate-y-1 hover:shadow-smash">
+          <div class="mb-6 grid h-12 w-12 place-items-center rounded-xl bg-mustard-500 text-char-900">
+            <i data-lucide="sparkles" class="w-6 h-6" stroke-width="2.5"></i>
+          </div>
+          <div class="font-display font-bold text-2xl uppercase leading-none text-cream-50">Ръчни сосове</div>
+          <p class="mt-2 text-sm leading-relaxed text-cream-200">Smash sauce, специален пилешки, коктейл — всичко се прави в кухнята ни, нищо от бутилка.</p>
+          <div class="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-mustard-500/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"></div>
+        </div>
+
+        <div data-inview class="opacity-0 translate-y-8 transition-all duration-700 delay-225 group relative cursor-default overflow-hidden rounded-2xl border border-char-900/10 bg-char-900 p-6 hover:-translate-y-1 hover:shadow-smash">
+          <div class="mb-6 grid h-12 w-12 place-items-center rounded-xl bg-mustard-500 text-char-900">
+            <i data-lucide="map-pin" class="w-6 h-6" stroke-width="2.5"></i>
+          </div>
+          <div class="font-display font-bold text-2xl uppercase leading-none text-cream-50">3 града</div>
+          <p class="mt-2 text-sm leading-relaxed text-cream-200">Намираш ни в София, Пловдив и Созопол — едно и също качество, навсякъде.</p>
+          <div class="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-mustard-500/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== MENU ============== -->
+  <section id="menu" class="relative isolate overflow-hidden bg-char-900 py-24 sm:py-32">
+    <div class="absolute inset-0 grid-paper opacity-40" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -left-32 top-1/3 -z-10 h-[500px] w-[500px] rounded-full" style="background: radial-gradient(closest-side, rgba(245,184,46,0.12), transparent 70%)" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div>
+          <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-mustard-500/30 bg-mustard-500/10 px-3 py-1.5">
+            <span class="h-1.5 w-1.5 rounded-full bg-mustard-500"></span>
+            <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-400">Менюто</span>
+          </div>
+          <h2 class="font-display font-bold text-[clamp(2.4rem,6vw,5rem)] leading-[0.9] tracking-tight2 text-cream-50">
+            Това, заради което<br/><span class="text-mustard-500">идваш отново</span>.
+          </h2>
+        </div>
+        <p class="max-w-sm text-sm text-cream-300 sm:text-base">Кратко меню. Всеки артикул минава тест — ако не е перфектен, не влиза.</p>
+      </div>
+
+      <div id="menuTabs" class="mt-10 flex flex-wrap gap-2"></div>
+      <div id="menuGrid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+      <p class="mt-10 text-center font-mono text-xs uppercase tracking-widest text-cream-400">
+        * Цените са в български лева. Алергените са налични по запитване.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============== LOCATIONS ============== -->
+  <section id="locations" class="relative isolate overflow-hidden bg-char-900 py-24 sm:py-32">
+    <div class="absolute inset-0 grid-paper opacity-30" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -right-32 top-1/4 -z-10 h-[600px] w-[600px] rounded-full" style="background: radial-gradient(closest-side, rgba(230,57,70,0.15), transparent 70%)" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div>
+          <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-fire-500/30 bg-fire-500/10 px-3 py-1.5">
+            <span class="h-1.5 w-1.5 rounded-full bg-fire-500"></span>
+            <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-fire-400">Локации · 3 града</span>
+          </div>
+          <h2 class="font-display font-bold text-[clamp(2.4rem,6vw,5rem)] leading-[0.9] tracking-tight2 text-cream-50">
+            Намери ни на<br/><span class="text-stroke-cream">картата</span>.
+          </h2>
+        </div>
+        <p class="max-w-sm text-sm text-cream-300 sm:text-base">София · Пловдив · Созопол — едно и също меню, един и същ вкус.</p>
+      </div>
+
+      <div id="locationsGrid" class="mt-12 grid gap-6 lg:grid-cols-3"></div>
+    </div>
+  </section>
+
+  <!-- ============== GALLERY / Instagram ============== -->
+  <section id="gallery" class="relative isolate overflow-hidden bg-char-900 py-24 sm:py-32">
+    <div class="absolute inset-0 grid-paper opacity-30" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -right-32 bottom-1/4 -z-10 h-[500px] w-[500px] rounded-full" style="background: radial-gradient(closest-side, rgba(245,184,46,0.10), transparent 70%)" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div>
+          <div class="mb-3 inline-flex items-center gap-2 rounded-full border border-mustard-500/30 bg-mustard-500/10 px-3 py-1.5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-mustard-400"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-400">Зад кулисите · @smash.n.pass</span>
+          </div>
+          <h2 class="font-display font-bold text-[clamp(2.4rem,6vw,5rem)] leading-[0.9] tracking-tight2 text-cream-50">
+            Гладен ли си<br/>
+            <span class="text-mustard-500">още?</span>
+          </h2>
+        </div>
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer"
+          class="group inline-flex cursor-pointer items-center gap-3 rounded-full border border-cream-50/20 bg-char-800/40 px-6 py-3.5 text-sm font-bold uppercase tracking-[0.15em] text-cream-100 backdrop-blur-md transition-all hover:border-mustard-500 hover:text-mustard-400">
+          Виж всичко в Instagram
+          <span class="grid h-7 w-7 place-items-center rounded-full bg-mustard-500 text-char-900 transition-transform group-hover:rotate-45">
+            <svg viewBox="0 0 16 16" class="h-3 w-3" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- 8 image grid - 4x2 on desktop, 2x4 on mobile -->
+      <div class="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+        <!-- 01 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/01.jpg" alt="Голям Смаш" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>2.4k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>47</span>
+            </div>
+          </div>
+        </a>
+        <!-- 06 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 delay-75 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/06.jpg" alt="Двоен Чедър" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>1.8k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>32</span>
+            </div>
+          </div>
+        </a>
+        <!-- 04 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 delay-150 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/04.jpg" alt="Белгийски картофки" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>1.2k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>28</span>
+            </div>
+          </div>
+        </a>
+        <!-- 09 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 delay-225 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/09.jpg" alt="Класически Смаш" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>3.1k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>56</span>
+            </div>
+          </div>
+        </a>
+        <!-- 05 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/05.jpg" alt="Burger + Fries" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>1.9k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>41</span>
+            </div>
+          </div>
+        </a>
+        <!-- 03 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 delay-75 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/03.jpg" alt="Пилешки Бургер" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>2.1k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>38</span>
+            </div>
+          </div>
+        </a>
+        <!-- 08 -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 delay-150 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/08.jpg" alt="Chicken Combo" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>1.5k</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>23</span>
+            </div>
+          </div>
+        </a>
+        <!-- 12 - interior -->
+        <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" data-inview
+          class="opacity-0 translate-y-5 transition-all duration-700 delay-225 group relative aspect-square cursor-pointer overflow-hidden rounded-2xl">
+          <img src="assets/photos/12.jpg" alt="Интериор" loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-char-900/90 via-char-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-3 bottom-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="flex items-center gap-3 text-xs text-cream-50">
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 text-fire-400"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>980</span>
+              <span class="inline-flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5 text-cream-100"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>19</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <p class="mt-6 text-center font-mono text-[10px] uppercase tracking-widest text-cream-400">
+        Виж повече в <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" class="text-mustard-400 hover:text-mustard-500">@smash.n.pass</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============== ORDER CTA ============== -->
+  <section id="order" class="relative isolate overflow-hidden bg-mustard-500 py-24 sm:py-32">
+    <div class="absolute inset-0 bg-grain opacity-25 mix-blend-multiply" aria-hidden="true"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute -bottom-12 left-1/2 -z-10 -translate-x-1/2 select-none whitespace-nowrap font-display font-bold text-[24vw] leading-none text-char-900/[0.06] sm:text-[16vw]">SMASH</div>
+
+    <div class="relative mx-auto max-w-6xl px-5 text-center sm:px-8">
+      <div data-inview class="opacity-0 translate-y-5 transition-all duration-700 mb-4 inline-flex items-center gap-2 rounded-full border border-char-900/25 bg-char-900/10 px-3 py-1.5">
+        <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-fire-500"></span>
+        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-char-900">Отворено сега</span>
+      </div>
+
+      <h2 data-inview class="opacity-0 translate-y-8 transition-all duration-700 delay-75 font-display font-bold text-[clamp(3rem,10vw,8rem)] leading-[0.85] tracking-tight2 text-char-900">
+        ГЛАДЕН?<br/><span class="text-stroke-char">ИМАМЕ</span> ЛЕК.
+      </h2>
+
+      <p data-inview class="opacity-0 translate-y-5 transition-all duration-700 delay-200 mx-auto mt-6 max-w-xl text-base leading-relaxed text-char-900/80 sm:text-lg">
+        Поръчай за доставка или мини на място. Винаги пресен. Винаги smash.
+      </p>
+
+      <div data-inview class="opacity-0 translate-y-5 transition-all duration-700 delay-300 mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-2">
+        <a href="https://wolt.com/en/bgr/sofia/brand/smashnpass" target="_blank" rel="noreferrer"
+          class="group relative cursor-pointer overflow-hidden rounded-2xl bg-[#009DE0] text-white p-6 text-left shadow-char transition-all hover:-translate-y-1 hover:shadow-2xl">
+          <div class="flex items-center gap-4">
+            <div class="grid h-14 w-14 place-items-center rounded-xl bg-black/15">
+              <svg viewBox="0 0 100 100" class="h-7 w-7" fill="currentColor"><path d="M50 12 C 30 12 12 30 12 50 C 12 70 30 88 50 88 C 70 88 88 70 88 50 C 88 30 70 12 50 12 Z M 50 22 C 65 22 78 35 78 50 C 78 65 65 78 50 78 C 35 78 22 65 22 50 C 22 35 35 22 50 22 Z M 50 30 C 39 30 30 39 30 50 C 30 61 39 70 50 70 C 61 70 70 61 70 50 C 70 39 61 30 50 30 Z" /></svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-display font-bold text-3xl uppercase leading-none">Wolt</div>
+              <div class="mt-1 text-xs opacity-80">Безплатна доставка · 8.8 ★</div>
+            </div>
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-black/15 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+              <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="https://glovoapp.com/en/bg/sofia/stores/smash-n-pass-sof" target="_blank" rel="noreferrer"
+          class="group relative cursor-pointer overflow-hidden rounded-2xl bg-[#FFC244] text-black p-6 text-left shadow-char transition-all hover:-translate-y-1 hover:shadow-2xl">
+          <div class="flex items-center gap-4">
+            <div class="grid h-14 w-14 place-items-center rounded-xl bg-black/15">
+              <svg viewBox="0 0 100 100" class="h-7 w-7" fill="currentColor"><path d="M50 10 L 88 38 L 73 90 L 27 90 L 12 38 Z M 50 30 L 28 46 L 36 76 L 64 76 L 72 46 Z" /></svg>
+            </div>
+            <div class="flex-1">
+              <div class="font-display font-bold text-3xl uppercase leading-none">Glovo</div>
+              <div class="mt-1 text-xs opacity-80">За 25 минути · до вратата</div>
+            </div>
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-black/15 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+              <svg viewBox="0 0 16 16" class="h-4 w-4" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div data-inview class="opacity-0 transition-all duration-700 delay-500 mx-auto mt-6 flex max-w-2xl items-center justify-center gap-4">
+        <div class="h-px flex-1 bg-char-900/20"></div>
+        <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-char-900/70">или</span>
+        <div class="h-px flex-1 bg-char-900/20"></div>
+      </div>
+
+      <a data-inview href="tel:+359886688683"
+        class="opacity-0 translate-y-5 transition-all duration-700 delay-500 group mt-6 inline-flex cursor-pointer items-center gap-3 rounded-full bg-char-900 px-7 py-4 text-sm font-bold uppercase tracking-[0.15em] text-cream-50 shadow-char hover:bg-char-800">
+        <i data-lucide="phone" class="w-4 h-4"></i>
+        Звънни · +359 88 668 8683
+        <span class="grid h-7 w-7 place-items-center rounded-full bg-mustard-500 text-char-900 transition-transform group-hover:rotate-12">
+          <svg viewBox="0 0 16 16" class="h-3 w-3" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="relative isolate overflow-hidden bg-char-900 pt-20">
+    <div class="absolute inset-0 grid-paper opacity-30" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer"
+        data-inview class="opacity-0 translate-y-5 transition-all duration-700 group block cursor-pointer rounded-3xl border border-cream-50/10 bg-gradient-to-br from-char-800/80 to-char-700/40 p-8 backdrop-blur-sm transition-colors hover:border-mustard-500/40 sm:p-12">
+        <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+          <div>
+            <div class="mb-2 inline-flex items-center gap-2 rounded-full border border-cream-50/15 px-3 py-1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 text-mustard-400"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-200">Последвай ни</span>
+            </div>
+            <div class="font-display font-bold text-[clamp(2rem,6vw,4.5rem)] leading-none uppercase tracking-tight2 text-cream-50">@smash.n.pass</div>
+            <p class="mt-2 text-sm text-cream-300 sm:text-base">Нови бургери, събития, тайни менюта — пускаме всичко първо там.</p>
+          </div>
+          <span class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-mustard-500 text-char-900 shadow-smash transition-transform group-hover:rotate-45 sm:h-20 sm:w-20">
+            <svg viewBox="0 0 24 24" class="h-6 w-6 sm:h-8 sm:w-8" fill="none"><path d="M5 19L19 5M19 5H7M19 5V17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="mt-20 grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <svg viewBox="0 0 220 60" class="h-12 w-auto" fill="none" aria-label="Smash N' Pass">
+            <g transform="translate(2, 8)">
+              <path d="M4 18 Q4 4 22 4 Q40 4 40 18 Z" fill="#D99B19" />
+              <ellipse cx="14" cy="10" rx="1.4" ry="1" fill="#FBF6E8" />
+              <ellipse cx="22" cy="8" rx="1.4" ry="1" fill="#FBF6E8" />
+              <ellipse cx="30" cy="10" rx="1.4" ry="1" fill="#FBF6E8" />
+              <path d="M3 19 Q8 16 13 19 Q18 16 23 19 Q28 16 33 19 Q38 16 41 19 L41 22 L3 22 Z" fill="#7CA040" />
+              <path d="M2 22 L42 22 L40 26 L4 26 Z" fill="#F5B82E" />
+              <rect x="3" y="26" width="38" height="6" rx="2" fill="#3A1F12" />
+              <path d="M4 32 L40 32 Q40 44 22 44 Q4 44 4 32 Z" fill="#A8740D" />
+            </g>
+            <text x="52" y="32" font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="26" fill="#FBF6E8" letter-spacing="-0.5">SMASH</text>
+            <text x="142" y="32" font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="26" fill="#F5B82E" letter-spacing="-0.5">N'</text>
+            <text x="170" y="32" font-family="Oswald, Impact, sans-serif" font-weight="700" font-size="26" fill="#FBF6E8" letter-spacing="-0.5">PASS</text>
+            <rect x="52" y="42" width="158" height="2.5" fill="#E63946" />
+            <text x="52" y="56" font-family="JetBrains Mono, monospace" font-size="7" fill="#8C8478" letter-spacing="2">BG · SMASH BURGER · SINCE 2023</text>
+          </svg>
+          <p class="mt-6 max-w-sm text-sm leading-relaxed text-cream-300">
+            Истинският smash burger в България. Без преструвки. Без театралности. Само вкус, който помниш.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-cream-50/15 bg-char-800/40 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-cream-200">
+              <i data-lucide="map-pin" class="w-3 h-3 text-mustard-400"></i> София
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-cream-50/15 bg-char-800/40 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-cream-200">
+              <i data-lucide="map-pin" class="w-3 h-3 text-mustard-400"></i> Пловдив
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-cream-50/15 bg-char-800/40 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-cream-200">
+              <i data-lucide="map-pin" class="w-3 h-3 text-mustard-400"></i> Созопол
+            </span>
+          </div>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-3 lg:col-span-7">
+          <div>
+            <div class="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-400">Меню</div>
+            <ul class="space-y-2.5">
+              <li><a href="#menu" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Бургери</a></li>
+              <li><a href="#menu" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Картофки</a></li>
+              <li><a href="#menu" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Менюта</a></li>
+              <li><a href="#menu" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Напитки</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-400">За нас</div>
+            <ul class="space-y-2.5">
+              <li><a href="#story" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Историята</a></li>
+              <li><a href="#anatomy" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Анатомия</a></li>
+              <li><a href="#locations" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Локации</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="mb-4 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-400">Поръчка</div>
+            <ul class="space-y-2.5">
+              <li><a href="https://wolt.com/en/bgr/sofia/brand/smashnpass" target="_blank" rel="noreferrer" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Wolt</a></li>
+              <li><a href="https://glovoapp.com/en/bg/sofia/stores/smash-n-pass-sof" target="_blank" rel="noreferrer" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Glovo</a></li>
+              <li><a href="tel:+359886688683" class="cursor-pointer text-sm text-cream-200 transition-colors hover:text-mustard-400">Тел: +359 88 668 8683</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 border-t border-cream-50/10 pt-12">
+        <div aria-hidden="true" class="select-none text-center font-display font-bold leading-none tracking-tight2 text-cream-50/[0.06]" style="font-size: clamp(4rem, 18vw, 16rem)">SMASH N' PASS</div>
+      </div>
+
+      <div class="flex flex-col items-center justify-between gap-4 border-t border-cream-50/10 py-6 sm:flex-row">
+        <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-cream-400">
+          © <span id="footerYear">2026</span> Smash N' Pass · BG · Всички права запазени
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/smash.n.pass/" target="_blank" rel="noreferrer" aria-label="Instagram"
+            class="grid h-9 w-9 cursor-pointer place-items-center rounded-full border border-cream-50/15 text-cream-200 transition-colors hover:border-mustard-500 hover:text-mustard-400">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-cream-400">
+            Site demo · <span id="footerDate"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- App script (defer — работи и при двойно кликане на index.html) -->
+  <script src="script.js" defer></script>
+</body>
+</html>
