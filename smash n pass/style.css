@@ -1,0 +1,159 @@
+/* =========================================================
+   Smash N' Pass — custom styles
+   (Tailwind утилитите идват от CDN-а в index.html)
+   ========================================================= */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0E0D0B;
+  position: relative;
+}
+
+body {
+  background-color: #0E0D0B;
+  color: #FBF6E8;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: clip;
+  position: relative;
+}
+
+::selection {
+  background: #F5B82E;
+  color: #0E0D0B;
+}
+
+/* --- custom utilities ------------------------------------ */
+.text-stroke-cream {
+  -webkit-text-stroke: 1.5px #F5EFE3;
+  color: transparent;
+}
+
+.text-stroke-char {
+  -webkit-text-stroke: 1.5px #0E0D0B;
+  color: transparent;
+}
+
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0 0.88 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px;
+}
+
+.grid-paper {
+  background-image:
+    linear-gradient(rgba(245, 239, 227, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 239, 227, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.perspective-1000 {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.shadow-text-fire {
+  text-shadow: 0 0 60px rgba(230, 57, 70, 0.45);
+}
+
+/* --- keyframes ------------------------------------------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float-hero {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.hero-float {
+  animation: float-hero 6s ease-in-out infinite;
+}
+
+/* --- font helpers ---------------------------------------- */
+.font-display { font-family: 'Oswald', Impact, sans-serif; }
+.font-body { font-family: 'Inter', system-ui, sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* --- "in-view" reveals (used by IntersectionObserver) ---- */
+[data-inview] {
+  will-change: opacity, transform;
+}
+
+[data-inview].is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+}
+
+/* --- hero entrance helpers (driven by JS) --------------- */
+[data-anim].is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- burger hero layers entrance ------------------------- */
+[data-burger-layer].is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- mobile menu open ------------------------------------ */
+#mobileMenu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* --- anatomy chips (default) ----------------------------- */
+.anatomy-chip {
+  opacity: 0.25;
+  transform: translateX(-20px);
+  will-change: opacity, transform;
+}
+
+/* --- anatomy burger layers (default) --------------------- */
+.anatomy-layer {
+  opacity: 0;
+  transform: translateY(-160px) rotate(0) scale(0.9);
+  will-change: opacity, transform;
+}
+
+/* --- scrollbar ------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0E0D0B;
+}
+::-webkit-scrollbar-thumb {
+  background: #2B2723;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5B82E;
+}
+
+/* --- reduced motion -------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
